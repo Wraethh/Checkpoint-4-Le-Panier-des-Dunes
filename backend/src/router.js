@@ -3,8 +3,15 @@ const express = require("express");
 const router = express.Router();
 
 const { checkIfUserExists } = require("./controllers/authControllers");
-const { validateLogin, verifyPassword } = require("./services/auth");
+const {
+  validateLogin,
+  verifyPassword,
+  verifyToken,
+  logout,
+} = require("./services/auth");
 
+// --- Auth ---
 router.post("/api/login", validateLogin, checkIfUserExists, verifyPassword);
+router.get("/api/logout", verifyToken, logout);
 
 module.exports = router;
