@@ -1,8 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import styles from "./AdminLogin.module.css";
 import authService from "../services/authService";
+import { useUserContext } from "../contexts/UserContext";
+import APIService from "../services/APIService";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AdminLogin() {
+  const { login } = useUserContext();
+
+  const navigate = useNavigate();
+
   const [inputContent, setInputContent] = useState({
     pseudo: "",
     password: "",
@@ -19,9 +28,36 @@ export default function AdminLogin() {
     try {
       e.preventDefault();
       await authService.authSchema.validate(inputContent);
-      setInputContent({ pseudo: "", password: "" });
+      const res = await APIService.post(`/login`, inputContent);
+      if (res) {
+        login(res.data);
+        toast.success("Bienvenue !", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setTimeout(() => {
+          navigate("/vegetables");
+        }, 2000);
+      } else throw new Error();
     } catch (error) {
-      console.error(error);
+      if (error.request.status === 401) {
+        toast.error("Pseudo et/ou mot de passe incorrect", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
     }
   };
 
@@ -46,6 +82,7 @@ export default function AdminLogin() {
           <button type="submit">Se connecter</button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 }
