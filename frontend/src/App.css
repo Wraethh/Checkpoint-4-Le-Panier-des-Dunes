@@ -1,1 +1,31 @@
+* {
+    /* --- Reset --- */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    /* --- Couleurs --- */
+    --main-color: #175732;
+    --secondary-color: #f4661b;
+    --third-color: #ffde75;
+    /* --- Police --- */
+    --font: "Hubballi", cursive;
+}
 
+.App {
+    width: 100dvw;
+    height: 100dvh;
+    font-family: var(--font);
+    background-color: var(--main-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--secondary-color);
+}
+
+button {
+    font-family: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

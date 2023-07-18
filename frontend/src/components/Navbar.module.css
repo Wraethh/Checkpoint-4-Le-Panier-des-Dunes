@@ -1,0 +1,38 @@
+.navbar {
+    width: 100%;
+    height: 25%;
+}
+
+.navbar ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.navbar ul li button h2 {
+    font-size: xx-large;
+    transition: .2s all ease-out;
+}
+
+.active {
+    position: relative;
+}
+
+.active h2 {
+    color: var(--third-color);
+    transition: .2s all ease-in;
+}
+
+.active::after {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 5px;
+    border-block: 2px solid var(--third-color);
+    left: -10%;
+    bottom: -50%;
+}
