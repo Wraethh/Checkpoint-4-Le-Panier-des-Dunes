@@ -2,12 +2,16 @@ const express = require("express");
 
 const router = express.Router();
 
-const itemControllers = require("./controllers/itemControllers");
+const { checkIfUserExists } = require("./controllers/authControllers");
+const {
+  validateLogin,
+  verifyPassword,
+  verifyToken,
+  logout,
+} = require("./services/auth");
 
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+// --- Auth ---
+router.post("/api/login", validateLogin, checkIfUserExists, verifyPassword);
+router.get("/api/logout", verifyToken, logout);
 
 module.exports = router;

@@ -1,0 +1,81 @@
+.adminLogin {
+    width: 100%;
+    height: calc(100% - 25dvh);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+.empty {
+    width: 70%;
+    max-width: 900px;
+    height: 90%;
+    left: 48.5%;
+    top: 4%;
+    transform: translate(-50%);
+    background-color: var(--third-color);
+    position: absolute;
+    border-radius: 2rem;
+    z-index: 0;
+    filter: drop-shadow(0 0 100px rgba(0, 0, 0, 0.337));
+}
+
+.modal {
+    width: 70%;
+    max-width: 900px;
+    height: 90%;
+    background-color: var(--main-color);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal form {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.modal form h3 {
+    font-size: x-large;
+}
+
+.modal form input {
+    width: 50%;
+    height: 7dvh;
+    border-radius: .5rem;
+    border: none;
+    background-color: var(--third-color);
+    color: var(--main-color);
+    font-family: inherit;
+    font-weight: bold;
+    padding: .5rem;
+}
+
+.modal form button {
+    width: 25%;
+    height: 7dvh;
+    background-color: var(--secondary-color);
+    border-radius: .5rem;
+    color: var(--third-color);
+    font-weight: bold;
+    font-size: large;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+
+    .modal form input {
+        width: 75%;
+    }
+
+    .modal form button {
+        width: 50%;
+    }
+}

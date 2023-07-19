@@ -1,5 +1,6 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { useUserContext } from "../contexts/UserContext";
 
 const navList = [
   { displayName: "Accueil", urlName: "home" },
@@ -8,11 +9,11 @@ const navList = [
 ];
 
 export default function Navbar() {
-  const navigate = useNavigate();
+  const { user, logout } = useUserContext();
   const location = useLocation();
 
-  const handleNavClick = (nav) => {
-    navigate(`/${nav}`);
+  const handleLogoutClick = () => {
+    logout();
   };
 
   return (
@@ -20,9 +21,9 @@ export default function Navbar() {
       <ul>
         {navList.map((el) => (
           <li key={el.urlName}>
-            <button
+            <NavLink
+              to={`/${el.urlName}`}
               type="button"
-              onClick={() => handleNavClick(el.urlName)}
               className={
                 location.pathname.slice(1) === el.urlName &&
                 location.pathname.slice(1) !== "admin"
@@ -31,9 +32,16 @@ export default function Navbar() {
               }
             >
               <h2>{el.displayName}</h2>
-            </button>
+            </NavLink>
           </li>
         ))}
+        {user.id ? (
+          <li>
+            <button type="button" onClick={handleLogoutClick}>
+              logout
+            </button>
+          </li>
+        ) : null}
       </ul>
     </div>
   );
