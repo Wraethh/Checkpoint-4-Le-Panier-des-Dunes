@@ -28,4 +28,4 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB;
 
 INSERT INTO user (pseudo, hashed_password) VALUES
-("admin", "$argon2d$v=19$m=16,t=2,p=1$bXBvYzlpdzNrZ3AwMDAwMA$ERQj98Ga9RSqeQIu4BOpkA")
+("admin", "$argon2id$v=19$m=16,t=2,p=1$MWZlbWt0MzA4ZHkwMDAwMA$Qho2/NH/FR7C2GaceUor+Q")
