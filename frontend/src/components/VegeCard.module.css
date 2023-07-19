@@ -13,6 +13,10 @@
     transition: .5s all;
 }
 
+.vegeCard:hover {
+    box-shadow: -10px 10px var(--secondary-color);
+}
+
 .disabled {
     filter: grayscale(100%);
     transition: .5s all;

@@ -1,25 +1,4 @@
-import * as yup from "yup";
-import APIService from "./APIService";
-
-const getVegetables = () => {
-  return APIService.get(`/vegetables`);
-};
-
-const getVegetableById = (id) => {
-  return APIService.get(`/vegetables/${id}`);
-};
-
-const addVegetable = (vege) => {
-  return APIService.post(`/vegetables`, vege);
-};
-
-const updateVegetable = (vege) => {
-  return APIService.put(`/vegetables/${vege.id}`, vege);
-};
-
-const deleteVegetable = (id) => {
-  return APIService.delete(`/vegetables/${id}`);
-};
+const yup = require("yup");
 
 const vegetableSchema = yup.object({
   vegetable: yup
@@ -56,11 +35,29 @@ const vegetableSchema = yup.object({
   isAvailable: yup.bool().required(),
 });
 
-export default {
-  getVegetables,
-  getVegetableById,
-  addVegetable,
-  updateVegetable,
-  deleteVegetable,
-  vegetableSchema,
+const validateVegetable = (req, res, next) => {
+  const { vegetable, variety, price, comments, picture, isAvailable } =
+    req.body;
+
+  const { error } = vegetableSchema.validate(
+    {
+      vegetable,
+      variety,
+      price,
+      comments,
+      picture,
+      isAvailable,
+    },
+    { abortEarly: false }
+  );
+
+  if (error) {
+    res.status(422).json({ validationErrors: error.details });
+  } else {
+    next();
+  }
+};
+
+module.exports = {
+  validateVegetable,
 };

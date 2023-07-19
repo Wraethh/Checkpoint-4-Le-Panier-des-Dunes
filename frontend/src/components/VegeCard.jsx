@@ -11,7 +11,13 @@ import vegetableService from "../services/vegetableService";
 
 export default function VegeCard({ vege }) {
   const { user } = useUserContext();
-  const { vegetablesData, setVegetablesData, fetch } = useVegetableContext();
+  const {
+    vegetablesData,
+    setVegetablesData,
+    fetch,
+    successToastTemplate,
+    errorToastTemplate,
+  } = useVegetableContext();
 
   const initialVege = useRef();
 
@@ -73,13 +79,19 @@ export default function VegeCard({ vege }) {
         await addVege();
         setEditable(!editable);
         fetch();
-      } else {
-        await updateVege();
-        setEditable(!editable);
-        fetch();
+        return successToastTemplate(
+          `${currentVege.vegetable} a bien été enregistré`
+        );
       }
+      updateVege();
+      setEditable(!editable);
+      fetch();
+      return successToastTemplate(
+        `${currentVege.vegetable} a bien été mis à jour`
+      );
     } catch (error) {
       console.error(error);
+      return errorToastTemplate(`${error}`.split(" ").slice(1).join(" "));
     }
   };
 
