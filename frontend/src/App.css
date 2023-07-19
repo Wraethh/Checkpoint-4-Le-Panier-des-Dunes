@@ -30,3 +30,8 @@ button {
     border: none;
     cursor: pointer;
 }
+
+input {
+    font-family: inherit;
+    border: none;
+}

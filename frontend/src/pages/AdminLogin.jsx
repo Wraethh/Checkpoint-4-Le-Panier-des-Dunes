@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import styles from "./AdminLogin.module.css";
 import authService from "../services/authService";
 import { useUserContext } from "../contexts/UserContext";
@@ -33,21 +33,25 @@ export default function AdminLogin() {
         login(res.data);
         toast.success("Bienvenue !", {
           position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: false,
+          autoClose: 1000,
+          hideProgressBar: true,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
           theme: "colored",
         });
         setTimeout(() => {
           navigate("/vegetables");
-        }, 2000);
+        }, 1000);
       } else throw new Error();
     } catch (error) {
-      if (error.request.status === 401) {
-        toast.error("Pseudo et/ou mot de passe incorrect", {
+      console.error(error);
+      toast.error(
+        !error.request.status === 401
+          ? `${error}`.split(" ").slice(1).join(" ")
+          : "Pseudo et/ou mot de passe incorrect",
+        {
           position: "bottom-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -56,17 +60,17 @@ export default function AdminLogin() {
           draggable: true,
           progress: undefined,
           theme: "colored",
-        });
-      }
+        }
+      );
     }
   };
 
   return (
     <div className={styles.adminLogin}>
-      <div className={styles.empty} />
+      {/* <div className={styles.empty} /> */}
       <div className={styles.modal}>
         <form onSubmit={handleSubmit}>
-          <h3>CONNEXION</h3>
+          <h3>Connexion</h3>
           <input
             type="text"
             name="pseudo"
@@ -82,7 +86,6 @@ export default function AdminLogin() {
           <button type="submit">Se connecter</button>
         </form>
       </div>
-      <ToastContainer />
     </div>
   );
 }

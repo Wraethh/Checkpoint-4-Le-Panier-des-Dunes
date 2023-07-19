@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { UserContextProvider } from "./contexts/UserContext";
+import { VegetableContextProvider } from "./contexts/VegetableContext";
 
 import App from "./App";
 
@@ -11,7 +13,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserContextProvider>
-        <App />
+        <VegetableContextProvider>
+          <App />
+          <ToastContainer />
+        </VegetableContextProvider>
       </UserContextProvider>
     </BrowserRouter>
   </React.StrictMode>
