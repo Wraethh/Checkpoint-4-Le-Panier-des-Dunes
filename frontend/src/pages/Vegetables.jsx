@@ -1,12 +1,22 @@
-import { useUserContext } from "../contexts/UserContext";
+import styles from "./Vegetables.module.css";
+import VegeCard from "../components/VegeCard";
 
 export default function Vegetables() {
-  const { user } = useUserContext();
-
   return (
-    <div>
-      Vegetables
-      {user.id ? <button type="button">test</button> : null}
+    <div className={styles.vegePage}>
+      <div className={styles.vegeContainer}>
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+        <VegeCard />
+      </div>
     </div>
   );
 }
