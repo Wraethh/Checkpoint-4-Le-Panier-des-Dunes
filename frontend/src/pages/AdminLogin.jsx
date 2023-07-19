@@ -33,17 +33,17 @@ export default function AdminLogin() {
         login(res.data);
         toast.success("Bienvenue !", {
           position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: false,
+          autoClose: 1000,
+          hideProgressBar: true,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
           theme: "colored",
         });
         setTimeout(() => {
           navigate("/vegetables");
-        }, 2000);
+        }, 1000);
       } else throw new Error();
     } catch (error) {
       if (error.request.status === 401) {

@@ -22,3 +22,34 @@
 .vegeContainer::-webkit-scrollbar {
     display: none;
   }
+
+.vegeCardAdd {
+    width: 300px;
+    min-width: 250px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: var(--secondary-color);
+    filter: opacity(.75);
+    margin: 1rem;
+    transition: .5s all;
+    color: var(--third-color);
+    font-size: 10rem;
+}
+
+.vegeCardAdd:hover {
+    filter: none;
+}
+
+.hidden {
+    width: 300px;
+    margin: 1rem;
+}
+
+.disabled, .disabled:hover {
+    filter: grayscale(100%);
+    transition: .5s all;
+}
