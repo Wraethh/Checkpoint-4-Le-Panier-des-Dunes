@@ -1,6 +1,7 @@
 .navbar {
     width: 100%;
     height: 25%;
+    position: relative;
 }
 
 .navbar ul {
@@ -35,4 +36,29 @@
     border-block: 2px solid var(--third-color);
     left: -10%;
     bottom: -50%;
+}
+
+.logout {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.34);
+}
+
+.logout img {
+    width: 60%;
+}
+
+@media screen and (max-width: 664px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        margin-block: .3rem;
+    }
 }
