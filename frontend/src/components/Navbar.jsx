@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useUserContext } from "../contexts/UserContext";
+import exit from "../assets/icons/exit.svg";
 
 const navList = [
   { displayName: "Accueil", urlName: "home" },
@@ -35,14 +36,18 @@ export default function Navbar() {
             </NavLink>
           </li>
         ))}
-        {user.id ? (
-          <li>
-            <button type="button" onClick={handleLogoutClick}>
-              logout
-            </button>
-          </li>
-        ) : null}
       </ul>
+      {user.id ? (
+        <li>
+          <button
+            type="button"
+            onClick={handleLogoutClick}
+            className={styles.logout}
+          >
+            <img src={exit} alt="logout icon" />
+          </button>
+        </li>
+      ) : null}
     </div>
   );
 }
