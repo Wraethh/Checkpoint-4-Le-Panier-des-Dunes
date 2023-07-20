@@ -14,7 +14,7 @@
 }
 
 .App {
-    width: 100dvw;
+    /* width: 100dvw; */
     height: 100dvh;
     font-family: var(--font);
 }

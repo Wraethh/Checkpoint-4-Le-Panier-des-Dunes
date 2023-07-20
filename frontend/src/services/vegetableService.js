@@ -35,12 +35,12 @@ const vegetableSchema = yup.object({
     .max(45, "Le nom de la variété est trop long")
     .required("Veuillez entrer le nom d'une variété"),
   price: yup
-    .number()
-    .typeError("Le prix doit être un nombre décimal")
-    .max(99, "Le prix est trop élevé")
-    .positive("Le prix ne peut pas être négatif")
-    .test("hasTwoDecimals", "Le prix doit suivre ce format: (0)0.00", (value) =>
-      /\b\d{1,2}\.{0,1}\d{0,2}\b/.test(value)
+    .string()
+    .typeError("Le prix doit être une chaîne de caractères")
+    .test(
+      "rightFormat",
+      "Le prix doit suivre ce format: (0)0.00€/format",
+      (value) => /^\d{1,2}\.\d{0,2}€\/([\wè\d]{2,5}){1}$/.test(value)
     )
     .required("Veuillez entrer un prix"),
   comments: yup
