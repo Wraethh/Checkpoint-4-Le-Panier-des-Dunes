@@ -9,6 +9,7 @@ export default VegetableContext;
 
 export function VegetableContextProvider({ children }) {
   const [vegetablesData, setVegetablesData] = useState();
+  const [query, setQuery] = useState("");
 
   async function fetch() {
     try {
@@ -49,11 +50,13 @@ export function VegetableContextProvider({ children }) {
     return {
       vegetablesData,
       setVegetablesData,
+      query,
+      setQuery,
       fetch,
       successToastTemplate,
       errorToastTemplate,
     };
-  }, [vegetablesData]);
+  }, [vegetablesData, query]);
 
   return (
     <VegetableContext.Provider value={memo}>

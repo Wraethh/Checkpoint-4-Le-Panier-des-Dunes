@@ -52,8 +52,7 @@ const vegetableSchema = yup.object({
     .string()
     .typeError("L'image doit être sous forme d'URL")
     .url("L'image doit être sous forme d'URL")
-    .nullable(),
-  isAvailable: yup.bool().required(),
+    .required("Veuillez insérer l'url d'une image"),
 });
 
 export default {

@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `vegetable` (
   `variety` VARCHAR(80) NOT NULL,
   `price` DECIMAL(4,2) NOT NULL,
   `comments` VARCHAR(255) NULL,
-  `picture` VARCHAR(255) NULL,
+  `picture` VARCHAR(255) NOT NULL,
   `isAvailable` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
@@ -17,6 +17,7 @@ INSERT INTO vegetable (vegetable, variety, price, comments, picture, isAvailable
 ("Carotte", "Des sables", 4.20, "Bien sucrées et iodées", "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80", 1),
 ("Salade", "Laitue", 1.20, "Belle laitue croquante", "https://images.unsplash.com/photo-1556781366-336f8353ba7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80", 1),
 ("Tomate", "Coeur de Boeuf", 5.80, "Juteuse, parfaite pour la cuisson", "https://images.unsplash.com/photo-1561136594-7f68413baa99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80", 1);
+("Pomme de terre", "Bintj", 2.50, "Parfaite pour des bonnes frites", "https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80", 1);
 
 -- -----------------------------------------------------
 -- Table `user`

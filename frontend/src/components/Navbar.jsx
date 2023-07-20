@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import styles from "./Navbar.module.css";
 import { useUserContext } from "../contexts/UserContext";
 import exit from "../assets/icons/exit.svg";
@@ -13,8 +14,18 @@ export default function Navbar() {
   const { user, logout } = useUserContext();
   const location = useLocation();
 
-  const handleLogoutClick = () => {
-    logout();
+  const handleLogoutClick = async () => {
+    await logout();
+    return toast.success("À bientôt !", {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   return (

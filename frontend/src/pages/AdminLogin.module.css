@@ -56,6 +56,16 @@
     color: var(--third-color);
     font-weight: bold;
     font-size: large;
+    transition: .2s all;
+}
+
+.modal form button:hover {
+    box-shadow: -5px 5px var(--third-color);
+    transition: .2s all;
+}
+
+.clicked {
+    transform: translateY(3px);
 }
 
 @media screen and (max-aspect-ratio: 1/1) {
