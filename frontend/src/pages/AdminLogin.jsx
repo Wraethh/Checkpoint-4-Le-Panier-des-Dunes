@@ -23,7 +23,7 @@ export default function AdminLogin() {
     setClicked(true);
     setTimeout(() => {
       setClicked(false);
-    }, 500);
+    }, 200);
   };
 
   const handleChange = (e) => {

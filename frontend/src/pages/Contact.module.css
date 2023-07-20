@@ -2,5 +2,52 @@
     width: 100%;
     height: calc(100% - 25dvh);
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.description {
+    width: 30%;
+    height: 90%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.description p {
+    color: var(--third-color);
+    font-size: calc(1rem + 1vmin);
+}
+
+.description h3 {
+    font-weight: bold;
+    font-size: calc(2rem + 1vmin);
+}
+
+.map {
+    height: 180px;
+    border-radius: 1rem;
+}
+
+@media screen and (max-width: 1100px) {
+    .contact {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: auto;
+    }
+
+    .contact h3, .contact p, .map {
+        margin-bottom: 3rem;
+    }
+
+    .description {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 664px) {
+    .description {
+        width: 80%;
+    }
 }
