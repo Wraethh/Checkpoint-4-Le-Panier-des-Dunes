@@ -12,10 +12,19 @@ export default function AdminLogin() {
 
   const navigate = useNavigate();
 
+  const [clicked, setClicked] = useState(false);
   const [inputContent, setInputContent] = useState({
     pseudo: "",
     password: "",
   });
+
+  // Ajoute un style au bouton et le retire après un petit laps de temps
+  const handleClick = () => {
+    setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+    }, 500);
+  };
 
   const handleChange = (e) => {
     setInputContent({
@@ -27,8 +36,11 @@ export default function AdminLogin() {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      // Validation des inputs
       await authService.authSchema.validate(inputContent);
+      // Envoie de la requête de login
       const res = await APIService.post(`/login`, inputContent);
+      // Si tout s'est bien passé
       if (res) {
         login(res.data);
         toast.success("Bienvenue !", {
@@ -41,6 +53,7 @@ export default function AdminLogin() {
           progress: undefined,
           theme: "colored",
         });
+        // On renvoie vers la liste des légumes
         setTimeout(() => {
           navigate("/vegetables");
         }, 1000);
@@ -67,7 +80,6 @@ export default function AdminLogin() {
 
   return (
     <div className={styles.adminLogin}>
-      {/* <div className={styles.empty} /> */}
       <div className={styles.modal}>
         <form onSubmit={handleSubmit}>
           <h3>Connexion</h3>
@@ -83,7 +95,13 @@ export default function AdminLogin() {
             placeholder="Mot de passe"
             onChange={handleChange}
           />
-          <button type="submit">Se connecter</button>
+          <button
+            type="submit"
+            className={clicked ? styles.clicked : null}
+            onClick={handleClick}
+          >
+            Se connecter
+          </button>
         </form>
       </div>
     </div>

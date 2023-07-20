@@ -17,6 +17,9 @@
     width: 100dvw;
     height: 100dvh;
     font-family: var(--font);
+}
+
+body {
     background-color: var(--main-color);
 }
 

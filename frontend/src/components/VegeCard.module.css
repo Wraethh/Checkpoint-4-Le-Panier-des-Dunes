@@ -11,6 +11,7 @@
     margin: 1rem;
     position: relative;
     transition: .5s all;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.264));
 }
 
 .vegeCard:hover {
@@ -36,6 +37,7 @@
     height: 120px;
     object-fit: cover;
     border-radius: 1rem;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.204));
 }
 
 .vegeText {
