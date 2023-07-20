@@ -106,4 +106,4 @@ To wrap things up, I'll let you enjoy some screenshots of the project.
 ![Home page in its desktop version](/frontend/src/assets/_ressources_/screenshots/desktop-home.png)
 ![Vegetables page in its desktop version](/frontend/src/assets/_ressources_/screenshots/desktop-vege.png)
 ![Contact page in its desktop version](/frontend/src/assets/_ressources_/screenshots/desktop-contact.png)
-![Vegetables page in its mobile version](/frontend/src/assets/_ressources_/screenshots/mobile-vege.png) ![Admin page in its mobile version](/frontend/src/assets/_ressources_/screenshots/mobile-admin.png) ![Home page in its mobile version](/frontend/src/assets/_ressources_/screenshots/mobile-home.png)
+![Vegetables page in its mobile version](/frontend/src/assets/_ressources_/screenshots/mobile-vege.png) ![Admin page in its mobile version](/frontend/src/assets/_ressources_/screenshots/mobile-admin.png)
