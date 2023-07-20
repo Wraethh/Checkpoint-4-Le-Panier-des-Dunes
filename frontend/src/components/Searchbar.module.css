@@ -24,3 +24,9 @@
     margin-left: -35px;
     margin-bottom: 2rem;
 }
+
+@media screen and (max-width: 664px) {
+    .search {
+        margin-top: 2rem
+    }
+}

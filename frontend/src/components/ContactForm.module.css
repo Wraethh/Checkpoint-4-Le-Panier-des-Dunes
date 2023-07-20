@@ -1,7 +1,6 @@
 .contactForm {
-    height: 90%;
     padding: 2rem;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
     background-color: var(--main-color);
     border-radius: 2rem;
     display: flex;
