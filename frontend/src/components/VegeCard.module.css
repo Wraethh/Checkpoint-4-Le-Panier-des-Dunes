@@ -50,8 +50,18 @@
     padding: 1rem;
 }
 
+.vegeText h4:first-of-type {
+    font-size: 1.1rem;
+}
+
 .vegeText h5 {
     margin-top: -7px;
+    font-size: .9rem;
+}
+
+.vegeText p {
+    max-height: 25%;
+    overflow: auto;
 }
 
 .adminButtons {

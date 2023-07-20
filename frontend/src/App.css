@@ -39,3 +39,7 @@ input, textarea {
     border: none;
     resize: none;
 }
+
+#map { 
+    height: 180px;
+ }
