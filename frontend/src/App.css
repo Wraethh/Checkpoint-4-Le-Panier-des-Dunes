@@ -34,7 +34,8 @@ button {
     cursor: pointer;
 }
 
-input {
+input, textarea {
     font-family: inherit;
     border: none;
+    resize: none;
 }
