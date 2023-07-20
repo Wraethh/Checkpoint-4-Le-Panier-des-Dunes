@@ -1,0 +1,6 @@
+.contact {
+    width: 100%;
+    height: calc(100% - 25dvh);
+    display: flex;
+    justify-content: center;
+}

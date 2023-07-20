@@ -14,7 +14,7 @@
 }
 
 .App {
-    width: 100dvw;
+    /* width: 100dvw; */
     height: 100dvh;
     font-family: var(--font);
 }
@@ -34,7 +34,8 @@ button {
     cursor: pointer;
 }
 
-input {
+input, textarea {
     font-family: inherit;
     border: none;
+    resize: none;
 }

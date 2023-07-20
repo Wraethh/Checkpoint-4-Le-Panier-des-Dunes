@@ -1,0 +1,71 @@
+.contactForm {
+    width: 70%;
+    max-width: 700px;
+    height: 90%;
+    margin-top: 1rem;
+    background-color: var(--main-color);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    box-shadow: -20px 20px var(--third-color);
+    filter: drop-shadow(0 0 100px rgba(0, 0, 0, 0.337));
+}
+
+.contactForm form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-block: 2rem;
+}
+
+.input, .textArea {
+    padding: .7rem;
+    background-color: var(--third-color);
+    border-radius: .5rem;
+    width: 400px;
+    color: var(--main-color);
+}
+
+.input {
+    flex: 1
+}
+
+.textArea {
+    flex: 15
+}
+
+.button {
+    padding: .7rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--third-color);
+    font-weight: bold;
+    border-radius: .5rem;
+}
+
+.button:hover {
+    box-shadow: -2px 2px var(--third-color);
+    transition: .2s all;
+}
+
+.names {
+    width: 400px;
+    display: flex; 
+    justify-content: space-between; 
+    gap: 10px;
+}
+
+.clicked {
+    transform: translateY(3px);
+}
+
+@media screen and (max-width: 664px) {
+    .input, .textArea, .names {
+        width: 80%;
+    }
+}

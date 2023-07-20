@@ -7,7 +7,7 @@ import exit from "../assets/icons/exit.svg";
 const navList = [
   { displayName: "Accueil", urlName: "home" },
   { displayName: "Légumes du moment", urlName: "vegetables" },
-  { displayName: "Galerie", urlName: "gallery" },
+  { displayName: "Contact", urlName: "contact" },
 ];
 
 export default function Navbar() {

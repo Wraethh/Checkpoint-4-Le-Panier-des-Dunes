@@ -24,6 +24,7 @@ export default function VegeCard({ vege }) {
   const [currentVege, setCurrentVege] = useState(vege);
   const [availabilty, setAvailability] = useState(vege.isAvailable);
   const [editable, setEditable] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
   useEffect(() => {
     initialVege.current = vege;
@@ -71,7 +72,7 @@ export default function VegeCard({ vege }) {
     setEditable(!editable);
   };
 
-  // Pour sauvegarder les changements en cours
+  // Pour sauvegarder les changements
   const handleSaveClick = async () => {
     try {
       await vegetableService.vegetableSchema.validate(currentVege);
@@ -96,7 +97,7 @@ export default function VegeCard({ vege }) {
   };
 
   // Pour annuler les changements en cours
-  const handleCancelClick = () => {
+  const handleCancelEditClick = () => {
     // Si c'est un nouvelle élément qui n'a pas encore été enregistré, on revient à l'état précédent sa création
     if (currentVege.id === "new") {
       setVegetablesData(vegetablesData.slice(0, [vegetablesData.length - 1]));
@@ -112,14 +113,51 @@ export default function VegeCard({ vege }) {
   };
 
   // Pour supprimer un légume
-  const handleDeleteClick = async () => {
+  const handleConfirmDeleteClick = async () => {
     await deleteVege();
     fetch();
+    successToastTemplate(
+      `${currentVege.vegetable} ${currentVege.variety} a bien été supprimé`
+    );
   };
 
   /* --- HTML --- */
   // Si le légume est marqué non disponible, la carte n'est pas visible publiquement
   if (!availabilty && !user.id) return null;
+
+  // Confirmation pour le delete
+  if (!editable && showDelete && user.id) {
+    return (
+      <div
+        className={
+          availabilty
+            ? styles.vegeCardDelete
+            : `${styles.vegeCardDelete} ${styles.disabled}`
+        }
+      >
+        <p>
+          Êtes-vous sûr de vouloir supprimer {currentVege.vegetable}{" "}
+          {currentVege.variety} ?
+        </p>
+        <div>
+          <button
+            type="button"
+            className={`${styles.deleteBtn} ${styles.confirm}`}
+            onClick={handleConfirmDeleteClick}
+          >
+            Oui
+          </button>
+          <button
+            type="button"
+            className={`${styles.deleteBtn} ${styles.cancel}`}
+            onClick={() => setShowDelete(false)}
+          >
+            Non
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // Si le public ou l'admin consulte la carte sans être en mode édition
   if (!editable) {
@@ -136,7 +174,7 @@ export default function VegeCard({ vege }) {
             <button type="button" onClick={handleEditClick}>
               <img src={edit} alt="edit button" />
             </button>
-            <button type="button" onClick={handleDeleteClick}>
+            <button type="button" onClick={() => setShowDelete(true)}>
               <img src={trash} alt="delete button" />
             </button>
           </div>
@@ -168,7 +206,7 @@ export default function VegeCard({ vege }) {
           <button type="button" onClick={handleSaveClick}>
             <img src={save} alt="save button" />
           </button>
-          <button type="button" onClick={handleCancelClick}>
+          <button type="button" onClick={handleCancelEditClick}>
             <img src={cancel} alt="cancel button" />
           </button>
         </div>
@@ -211,9 +249,9 @@ export default function VegeCard({ vege }) {
               onChange={handleEditChange}
             />
             <input
-              type="number"
+              type="text"
               name="price"
-              placeholder="Prix (0.00)"
+              placeholder="Prix (0.00€/format)"
               value={currentVege.price}
               onChange={handleEditChange}
             />
