@@ -50,8 +50,26 @@
     padding: 1rem;
 }
 
+.vegeText h4:first-of-type {
+    font-size: 1.1rem;
+}
+
 .vegeText h5 {
     margin-top: -7px;
+    font-size: .9rem;
+}
+
+.vegeText p {
+    max-height: 25%;
+    overflow: auto;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.vegeText p::-webkit-scrollbar {
+    display: none;
 }
 
 .adminButtons {

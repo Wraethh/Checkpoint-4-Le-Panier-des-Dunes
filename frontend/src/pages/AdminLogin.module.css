@@ -32,7 +32,7 @@
 }
 
 .modal form h3 {
-    font-size: x-large;
+    font-size: calc(2rem + 1vmin);
 }
 
 .modal form input {
@@ -44,7 +44,7 @@
     color: var(--main-color);
     font-family: inherit;
     font-weight: bold;
-    font-size: x-large;
+    font-size: calc(1rem + 1vmin);
     padding: 1rem;
 }
 

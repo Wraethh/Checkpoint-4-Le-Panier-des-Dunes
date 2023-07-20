@@ -1,8 +1,6 @@
 .contactForm {
-    width: 70%;
-    max-width: 700px;
-    height: 90%;
-    margin-top: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
     background-color: var(--main-color);
     border-radius: 2rem;
     display: flex;
@@ -10,7 +8,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
-    box-shadow: -20px 20px var(--third-color);
+    box-shadow: -15px 15px var(--third-color);
     filter: drop-shadow(0 0 100px rgba(0, 0, 0, 0.337));
 }
 
@@ -21,11 +19,12 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    padding-block: 2rem;
 }
 
 .input, .textArea {
     padding: .7rem;
+    font-size: 1rem;
+    font-weight: bold;
     background-color: var(--third-color);
     border-radius: .5rem;
     width: 400px;
@@ -64,8 +63,18 @@
     transform: translateY(3px);
 }
 
+@media screen and (max-width: 1100px) {
+    .contactForm {
+        margin-bottom: 3rem;
+    }
+}
+
 @media screen and (max-width: 664px) {
-    .input, .textArea, .names {
+    .contactForm {
         width: 80%;
+    }
+
+    .input, .textArea, .names {
+        width: 100%;
     }
 }
