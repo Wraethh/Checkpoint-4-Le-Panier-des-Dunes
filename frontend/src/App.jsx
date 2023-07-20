@@ -12,6 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         {/* --- Routes publiques --- */}
+        <Route path="/" element={<Home />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/home" element={<Home />} />
         <Route path="/vegetables" element={<Vegetables />} />
