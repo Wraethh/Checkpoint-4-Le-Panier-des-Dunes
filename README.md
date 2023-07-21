@@ -10,12 +10,12 @@ This can help them showcase their vegetables and give people a way to get in tou
 ## 💻 Development
 
 Let's get technical.
-I started development with [this tempalte](https://github.com/WildCodeSchool/js-template-fullstack)
+I started development with [this template](https://github.com/WildCodeSchool/js-template-fullstack)
 
 ### 📚 Stack
 
 - This project was made using **React** and **CSS modules**.
-- For the backend, I used **Express** as a framework for **Node.js**.
+- For the backend, I used **Express** with a **MVC** schema as a framework for **Node.js**.
 - I handled data through a database created with **MySQL**.
 - I used **Excalidraw** to create a draft for my website and the CDM for my database. (Would have used **Figma** if I had more time though).
 - I chose to apply **Agile** methodology, more precisely **Scrum**, and so I wrote some user stories that I organized via **Trello**.
@@ -98,6 +98,7 @@ For deployment, you have to go to `secrets` → app `actions` on the github repo
 - I'd like to add a _Gallery_ section where people could see how and where the vegetables are produced.
 - A proper way to place orders could be a great thing to have also.
 - Following the last idea, setting up an online payment feature would be a nice addition.
+- Finally, there is room for improvement on the authentication part as for now there is no token refresh logic.
 
 ## 🖼️ Screenshots
 
